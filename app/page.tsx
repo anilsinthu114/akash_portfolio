@@ -17,7 +17,7 @@ export default function Home() {
             // Determine active section based on scroll position
             const sections = ['home', 'about', 'experience', 'education', 'projects', 'contact']
             let currentSection = sections[0]
-            let minDistance = 25
+            let minDistance = Infinity
 
             sections.forEach(section => {
                 const element = document.getElementById(section)
@@ -46,9 +46,9 @@ export default function Home() {
         
         if (element) {
             // Add offset for mobile screens to account for fixed header
-            const offset = window.innerWidth < 768 ? -75 : 0
+            const offset = window.innerWidth < 768 ? -75 : -30 // Reduced offset
             const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.scrollY - 75
+            const offsetPosition = elementPosition + window.scrollY + offset
 
             window.scrollTo({
                 top: offsetPosition,
@@ -117,33 +117,32 @@ export default function Home() {
                     </div>
                 </div>
                 {/* Mobile Navigation Menu */}
-                
-                    {isMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="md:hidden fixed top-[72px] left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 max-h-[calc(100vh-72px)] overflow-y-auto"
-                        >
-                            <div className="p-4 space-y-2">
-                                {['home', 'about', 'experience', 'education', 'projects', 'contact'].map((section) => (
-                                    <motion.button
-                                        key={section}
-                                        whileHover={{ scale: 1.02, x: 8 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        onClick={() => scrollToSection(section)}
-                                        className={`${activeSection === section
-                                                ? 'text-purple-600 font-semibold bg-purple-50'
-                                                : 'text-gray-600 hover:bg-gray-50'
-                                            } block w-full text-left py-3 px-4 rounded-lg capitalize transition-all duration-200 text-lg`}
-                                    >
-                                        {section}
-                                    </motion.button>
-                                ))}
-                            </div>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="md:hidden fixed top-[72px] left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 max-h-[calc(100vh-72px)] overflow-y-auto"
+                    >
+                        <div className="p-4 space-y-2">
+                            {['home', 'about', 'experience', 'education', 'projects', 'contact'].map((section) => (
+                                <motion.button
+                                    key={section}
+                                    whileHover={{ scale: 1.02, x: 8 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    onClick={() => scrollToSection(section)}
+                                    className={`${activeSection === section
+                                            ? 'text-purple-600 font-semibold bg-purple-50'
+                                            : 'text-gray-600 hover:bg-gray-50'
+                                        } block w-full text-left py-3 px-4 rounded-lg capitalize transition-all duration-200 text-lg`}
+                                >
+                                    {section}
+                                </motion.button>
+                            ))}
+                        </div>
                     </motion.div>
-                )}  
+                )}
             </motion.nav>
 
             {/* Hero Section */}
@@ -152,7 +151,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 10 }}
                 transition={{ duration: 0.8 }}
                 id="home"
-                className="min-h-screen flex items-center pt-20 px-4 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-100"
+                className="min-h-screen flex items-center pt-16 px-4 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-100" // Reduced padding top
             >
                 <div className="max-w-7xl mx-auto text-center">
                     <motion.div
@@ -284,9 +283,9 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
                 id="about"
-                className="py-20 md:py-28 px-4 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+                className="py-16 md:py-20 px-4 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50"> {/* Reduced padding */}
                 <motion.div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-12 md:mb-16 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">About Me</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">About Me</h2>
                     <motion.div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                         <ul className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6">
                             <li className="flex items-start gap-4">
@@ -321,10 +320,10 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
                 id="experience"
-                className="py-20 md:py-28 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"
+                className="py-16 md:py-20 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50" // Reduced padding
             >
                 <motion.div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-12 md:mb-16 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">Experience</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">Experience</h2>
                     <div className="space-y-8">
                         <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                             <div className="flex items-center gap-4 mb-6">
@@ -418,10 +417,10 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
                 id="education"
-                className="py-20 md:py-28 px-4 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50"
+                className="py-16 md:py-20 px-4 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50" // Reduced padding
             >
                 <motion.div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-12 md:mb-16 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">Education</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">Education</h2>
                     <div className="space-y-8">
                         <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Bachelor of Technology in Mechanical Engineering</h3>
