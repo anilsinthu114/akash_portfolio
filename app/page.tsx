@@ -99,7 +99,7 @@ export default function Home() {
             <svg
               className="w-6 h-6"
               fill="none"
-              stroke="currentColor"
+              stroke="black"
               viewBox="0 0 24 24"
             >
               {isMenuOpen ? (
@@ -328,9 +328,10 @@ export default function Home() {
               </motion.svg>
             </motion.a>
           </motion.div>
+          <Analytics />
         </div>
       </motion.section>
-      <Analytics />
+    
       {/* About Section */}
       <motion.section
         initial={{ opacity: 0 }}
@@ -1056,9 +1057,7 @@ export default function Home() {
               <span className="text-lg">Email</span>
             </a>
           </div>
-          <div>
-            <Analytics />
-          </div>
+ 
         </motion.div>
       </motion.section>
 
