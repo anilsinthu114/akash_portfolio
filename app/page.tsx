@@ -1,9 +1,9 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-
+import 
 export default function Home() {
     const [activeSection, setActiveSection] = useState('home')
     const [isScrolling, setIsScrolling] = useState(false)
