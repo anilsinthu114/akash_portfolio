@@ -9,7 +9,6 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   // Handle scroll events for smooth navigation
   useEffect(() => {
     const handleScroll = () => {
@@ -218,6 +217,7 @@ export default function Home() {
                 className="absolute -bottom-2 right-0 bg-green-500 w-5 h-5 md:w-6 md:h-6 rounded-full border-4 border-white shadow-lg"
               />
             </div>
+              <Analytics />
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
