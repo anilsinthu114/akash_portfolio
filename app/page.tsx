@@ -720,7 +720,7 @@ export default function Home() {
                         
                     </div>
                     <div className="flex justify-center space-x-6">
-                    <p className="text-gray-300">Designed and Developed by <a href="https://anilsinthu.vercel.app" target="_blank" rel="noopener" className="text-gray-300 hover:text-white transition-all duration-200 transform hover:scale-110">Anil Sinthu </a></p>
+                    <p className="text-gray-xs-300">Designed and Developed by <a href="https://anilsinthu.vercel.app" target="_blank" rel="noopener" className="text-gray-300 hover:text-white transition-all duration-200 transform hover:scale-110">Anil Sinthu </a></p>
                     </div>
                 </motion.div>
             </footer>
